@@ -11,7 +11,7 @@ constructor(props){
 }
 setCounter=(op)=>{
 
-    let sign= op =='+'?+1:-1;
+    let sign= op ==='+'?+1:-1;
     if(op ==="-" && this.state.counter ===1){
         sign=0;
     }
@@ -31,7 +31,7 @@ render(){
 return (
 <div className="card m-3">
     <div className="card-header">
-        <b>{this.props.title}:{this.state.counter}</b>
+        <b>{this.props.title?this.props.title:'REAL MADRID'}:{this.state.counter}</b>
 
     </div>
     <div className='md-3'>
@@ -41,8 +41,8 @@ return (
      <div className="card-body">
      {
          this.state.imagesList.map((v,index)=>
-       <span>{index}
-         <img   width={ 100}  src={this.props.image}/>
+       <span key={index}>{index}
+         <img   width={ 100}  src={this.props.image ?this.props.image:'./pictures/zidane.jpg'} alt='real madrid player'/>
           </span>
      )}
 
